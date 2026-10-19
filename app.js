@@ -6,51 +6,30 @@ tg.MainButton.color = "#2cab37";
 
 let item = "";
 
-let btn1 = document.getElementById("btn1");
-let btn2 = document.getElementById("btn2");
-let btn3 = document.getElementById("btn3");
-let btn4 = document.getElementById("btn4");
-
-btn1.addEventListener("click", function(){
-    if(tg.MainButton.isVisible){
-        tg.MainButton.hide();
-    } else {
-        tg.MainButton.setText("Вывести информацию по Петру I");
-        item = "1";
-        tg.MainButton.show();
-    }
+document.getElementById("btn1").addEventListener("click", function(){
+    item = "1";
+    tg.MainButton.setText("Вывести информацию по Петру I");
+    tg.MainButton.show();
 });
 
-btn2.addEventListener("click", function(){
-    if(tg.MainButton.isVisible){
-        tg.MainButton.hide();
-    } else {
-        tg.MainButton.setText("Вывести информацию по Екатерине II");
-        item = "2";
-        tg.MainButton.show();
-    }
+document.getElementById("btn2").addEventListener("click", function(){
+    item = "2";
+    tg.MainButton.setText("Вывести информацию по Екатерине II");
+    tg.MainButton.show();
 });
 
-btn3.addEventListener("click", function(){
-    if(tg.MainButton.isVisible){
-        tg.MainButton.hide();
-    } else {
-        tg.MainButton.setText("Вывести информацию по Гагарину");
-        item = "3";
-        tg.MainButton.show();
-    }
+document.getElementById("btn3").addEventListener("click", function(){
+    item = "3";
+    tg.MainButton.setText("Вывести информацию по Гагарину");
+    tg.MainButton.show();
 });
 
-btn4.addEventListener("click", function(){
-    if(tg.MainButton.isVisible){
-        tg.MainButton.hide();
-    } else {
-        tg.MainButton.setText("Вывести информацию по Суворову");
-        item = "4";
-        tg.MainButton.show();
-    }
+document.getElementById("btn4").addEventListener("click", function(){
+    item = "4";
+    tg.MainButton.setText("Вывести информацию по Суворову");
+    tg.MainButton.show();
 });
 
-Telegram.WebApp.onEvent("mainButtonClicked", function(){
+tg.MainButton.onClick(function(){
     tg.sendData(item);
 });
