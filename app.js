@@ -1,35 +1,21 @@
 let tg = window.Telegram.WebApp;
-tg.expand();
-tg.MainButton.textColor = "#FFFFFF";
-tg.MainButton.color = "#2cab37";
+tg.expand(); // Разворачиваем приложение на весь экран
 
-let item = "";
+let selectedItem = "";
 
-document.getElementById("btn1").addEventListener("click", function(){
-    item = "1";
-    tg.MainButton.setText("Вывести информацию по Петру I");
-    tg.MainButton.show();
+// Навешиваем обработчик на все кнопки
+document.querySelectorAll('.btn').forEach(button => {
+    button.addEventListener('click', function() {
+        selectedItem = this.getAttribute('data-value');
+        // Настраиваем главную кнопку внизу экрана
+        tg.MainButton.setText("Показать информацию");
+        tg.MainButton.show();
+    });
 });
 
-document.getElementById("btn2").addEventListener("click", function(){
-    item = "2";
-    tg.MainButton.setText("Вывести информацию по Екатерине II");
-    tg.MainButton.show();
-});
-
-document.getElementById("btn3").addEventListener("click", function(){
-    item = "3";
-    tg.MainButton.setText("Вывести информацию по Гагарину");
-    tg.MainButton.show();
-});
-
-document.getElementById("btn4").addEventListener("click", function(){
-    item = "4";
-    tg.MainButton.setText("Вывести информацию по Суворову");
-    tg.MainButton.show();
-});
-
-// Эта строка отправляет данные в бота при нажатии на зелёную кнопку
-tg.MainButton.onClick(function(){
-    tg.sendData(item);
+// Обработка нажатия на главную кнопку
+Telegram.WebApp.onEvent("mainButtonClicked", function() {
+    if (selectedItem) {
+        tg.sendData(selectedItem); // Отправляем данные боту
+    }
 });
