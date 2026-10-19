@@ -1,6 +1,5 @@
 let tg = window.Telegram.WebApp;
 tg.expand();
-
 tg.MainButton.textColor = "#FFFFFF";
 tg.MainButton.color = "#2cab37";
 
@@ -30,6 +29,7 @@ document.getElementById("btn4").addEventListener("click", function(){
     tg.MainButton.show();
 });
 
+// Эта строка отправляет данные в бота при нажатии на зелёную кнопку
 tg.MainButton.onClick(function(){
     tg.sendData(item);
 });
