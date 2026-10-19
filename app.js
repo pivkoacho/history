@@ -1,13 +1,27 @@
 let tg = window.Telegram.WebApp;
-tg.expand(); // Разворачиваем приложение на весь экран
+tg.expand();
 
 let selectedItem = "";
 
-// Навешиваем обработчик на все кнопки
+// Настраиваем главную кнопку
+tg.MainButton.textColor = "#FFFFFF";
+tg.MainButton.color = "#2cab37";
+
+// Добавляем обработчики на все кнопки
 document.querySelectorAll('.btn').forEach(button => {
     button.addEventListener('click', function() {
+        // Убираем выделение со всех кнопок
+        document.querySelectorAll('.btn').forEach(btn => {
+            btn.classList.remove('selected');
+        });
+        
+        // Выделяем нажатую кнопку
+        this.classList.add('selected');
+        
+        // Сохраняем выбранное значение
         selectedItem = this.getAttribute('data-value');
-        // Настраиваем главную кнопку внизу экрана
+        
+        // Показываем главную кнопку с текстом
         tg.MainButton.setText("Показать информацию");
         tg.MainButton.show();
     });
@@ -16,6 +30,9 @@ document.querySelectorAll('.btn').forEach(button => {
 // Обработка нажатия на главную кнопку
 Telegram.WebApp.onEvent("mainButtonClicked", function() {
     if (selectedItem) {
-        tg.sendData(selectedItem); // Отправляем данные боту
+        console.log("Отправляем данные:", selectedItem);
+        tg.sendData(selectedItem);
+    } else {
+        tg.showAlert("Пожалуйста, выберите историческую личность!");
     }
 });
