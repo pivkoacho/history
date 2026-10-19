@@ -30,9 +30,9 @@ document.getElementById("btn4").addEventListener("click", function(){
     tg.MainButton.show();
 });
 
-// ВАЖНО: используем onEvent вместо onClick!
-tg.onEvent('mainButtonClicked', function(){
-    console.log("ОТПРАВЛЯЕМ ДАННЫЕ: " + item);
+// Используем onEvent — это работает во всех версиях
+Telegram.WebApp.onEvent("mainButtonClicked", function(){
+    console.log("ОТПРАВЛЯЕМ: " + item);
     tg.sendData(item);
 });
 tg.MainButton.onClick(function(){
