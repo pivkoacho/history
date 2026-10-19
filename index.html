@@ -56,27 +56,27 @@
     <h2>Выберите историческую личность:</h2>
     <div class="grid">
         <div class="item">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Peter_I_by_Kneller.jpg" alt="Пётр I">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Peter_I_by_Kneller.jpg/400px-Peter_I_by_Kneller.jpg" alt="Пётр I">
             <button class="btn" onclick="selectPerson('peter1', this)">Пётр I</button>
         </div>
         <div class="item">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Catherine_II_by_J.B.Lampi.jpg" alt="Екатерина II">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Catherine_II_by_J.B.Lampi.jpg/400px-Catherine_II_by_J.B.Lampi.jpg" alt="Екатерина II">
             <button class="btn" onclick="selectPerson('catherine2', this)">Екатерина II</button>
         </div>
         <div class="item">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c8/Yuri_Gagarin_1961.jpg" alt="Гагарин">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Yuri_Gagarin_1961.jpg/400px-Yuri_Gagarin_1961.jpg" alt="Гагарин">
             <button class="btn" onclick="selectPerson('gagarin', this)">Юрий Гагарин</button>
         </div>
         <div class="item">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6e/Alexander_Suvorov_by_Johann_Baptist_Lampi.jpg" alt="Суворов">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Alexander_Suvorov_by_Johann_Baptist_Lampi.jpg/400px-Alexander_Suvorov_by_Johann_Baptist_Lampi.jpg" alt="Суворов">
             <button class="btn" onclick="selectPerson('suvorov', this)">Александр Суворов</button>
         </div>
         <div class="item">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c2/Kiprensky_Pushkin.jpg" alt="Пушкин">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Kiprensky_Pushkin.jpg/400px-Kiprensky_Pushkin.jpg" alt="Пушкин">
             <button class="btn" onclick="selectPerson('pushkin', this)">Александр Пушкин</button>
         </div>
         <div class="item">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/4/43/Vladimir_Lenin_1920.jpg" alt="Ленин">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Vladimir_Lenin_1920.jpg/400px-Vladimir_Lenin_1920.jpg" alt="Ленин">
             <button class="btn" onclick="selectPerson('lenin', this)">Владимир Ленин</button>
         </div>
     </div>
@@ -106,7 +106,6 @@
 
         tg.MainButton.onClick(function() {
             if (selectedItem) {
-                tg.showAlert("Отправляю: " + selectedItem);
                 tg.sendData(selectedItem);
             } else {
                 tg.showAlert("Сначала выберите личность!");
