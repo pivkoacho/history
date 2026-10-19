@@ -106,6 +106,7 @@
 
         tg.MainButton.onClick(function() {
             if (selectedItem) {
+                console.log("Отправляем данные:", selectedItem);
                 tg.sendData(selectedItem);
             } else {
                 tg.showAlert("Сначала выберите личность!");
